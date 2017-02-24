@@ -52,6 +52,7 @@ Data/*.csv
 
 ## Ignore Mac 
 */.DS_Store
+.DS_Store
 
 # amsthm
 *.thm
