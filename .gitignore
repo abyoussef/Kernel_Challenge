@@ -43,6 +43,16 @@
 # achemso
 acs-*.bib
 
+## Data files not uploaded
+Data/*.txt
+Data/*.csv
+
+## For jupyter Notebook checkpoints
+*checkpoint*
+
+## Ignore Mac 
+*/.DS_Store
+
 # amsthm
 *.thm
 
