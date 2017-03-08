@@ -11,7 +11,13 @@
 *.cb
 *.cb2
 
-Report
+.idea/ 
+.DS_Store 
+OtherProject/ 
+
+*checkpoint* 
+Report/
+!Report/*.pdf
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
