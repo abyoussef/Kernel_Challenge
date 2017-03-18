@@ -17,6 +17,5 @@ In the code folder, you can find the code organized as follows :
 
 
 In the same level as the code folder should be :
-
-    * data : folder to store the data
-    * results : to output the predictions
+* data : folder to store the data
+* results : to output the predictions
