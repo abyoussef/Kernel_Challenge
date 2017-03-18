@@ -1,0 +1,138 @@
+##############################################################
+### Log file of the classification obtained by the command ###
+### python start.py > log_rbf.txt                          ###
+### For Gaussian Kernel with lambda = 0.001, sigma = 0.2   ###
+##############################################################
+Loading the data ...
+Statistics: 
+There is 5000 training images of dimension 3072 
+There is 2000 testing  images of dimension 3072 
+Number of classes: 10
+Extracting HOG Features for training set ... 
+HOG features extraction for 0 images
+HOG features extraction for 500 images
+HOG features extraction for 1000 images
+HOG features extraction for 1500 images
+HOG features extraction for 2000 images
+HOG features extraction for 2500 images
+HOG features extraction for 3000 images
+HOG features extraction for 3500 images
+HOG features extraction for 4000 images
+HOG features extraction for 4500 images
+Extraction Completed for training set ! 
+Shape of the training features : (5000, 576)
+Extracting HOG Features for test set ... 
+HOG features extraction for 0 images ..
+HOG features extraction for 500 images ..
+HOG features extraction for 1000 images ..
+HOG features extraction for 1500 images ..
+Extraction Completed for test set ! 
+Shape of the test features : (2000, 576)
+Computing RBF Kernel
+Start one vs all classification
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  2e-16
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  4e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  2e-12  2e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  5e-13  2e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  2e-13  1e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  2e-13  1e-16
+ 6: -9.7222e+01 -9.7222e+01  3e-06  2e-13  2e-16
+Optimal solution found.
+Classification completed for label 0 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  2e-16
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  2e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  6e-12  8e-16
+ 3: -9.7008e+01 -9.9659e+01  3e+00  3e-13  4e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  3e-13  7e-17
+ 5: -9.7222e+01 -9.7222e+01  3e-04  2e-13  9e-17
+ 6: -9.7222e+01 -9.7222e+01  3e-06  4e-14  8e-17
+Optimal solution found.
+Classification completed for label 1 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  3e-16
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  6e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  5e-14  1e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  1e-13  3e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  4e-13  2e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  7e-14  2e-16
+ 6: -9.7222e+01 -9.7222e+01  3e-06  1e-14  9e-17
+Optimal solution found.
+Classification completed for label 2 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  6e-17
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  2e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  7e-13  8e-16
+ 3: -9.7008e+01 -9.9659e+01  3e+00  9e-13  2e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  4e-13  1e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  4e-14  1e-16
+ 6: -9.7222e+01 -9.7222e+01  3e-06  6e-16  1e-16
+Optimal solution found.
+Classification completed for label 3 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  7e-17
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  4e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  4e-12  1e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  7e-14  2e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  5e-13  2e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  2e-15  1e-16
+ 6: -9.7222e+01 -9.7222e+01  3e-06  2e-14  9e-17
+Optimal solution found.
+Classification completed for label 4 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  6e-17
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  5e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  3e-12  1e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  8e-13  2e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  4e-13  1e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  8e-15  6e-17
+ 6: -9.7222e+01 -9.7222e+01  3e-06  1e-14  2e-16
+Optimal solution found.
+Classification completed for label 5 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  2e-16
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  3e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  3e-13  1e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  6e-14  2e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  1e-13  9e-17
+ 5: -9.7222e+01 -9.7222e+01  3e-04  2e-14  8e-17
+ 6: -9.7222e+01 -9.7222e+01  3e-06  2e-14  9e-17
+Optimal solution found.
+Classification completed for label 6 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  1e-16
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  3e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  4e-12  1e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  3e-13  2e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  2e-13  2e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  7e-14  2e-16
+ 6: -9.7222e+01 -9.7222e+01  3e-06  5e-14  2e-16
+Optimal solution found.
+Classification completed for label 7 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  3e-16
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  3e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  3e-12  2e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  7e-13  2e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  2e-13  2e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  1e-14  8e-17
+ 6: -9.7222e+01 -9.7222e+01  3e-06  2e-14  1e-16
+Optimal solution found.
+Classification completed for label 8 .. 
+     pcost       dcost       gap    pres   dres
+ 0: -5.3900e+02 -9.6700e+02  3e+04  2e+01  7e-17
+ 1: -1.5867e+02 -8.1455e+02  2e+03  1e+00  4e-16
+ 2: -9.5971e+01 -2.9742e+02  2e+02  2e-12  1e-15
+ 3: -9.7008e+01 -9.9659e+01  3e+00  1e-13  3e-16
+ 4: -9.7220e+01 -9.7247e+01  3e-02  6e-13  2e-16
+ 5: -9.7222e+01 -9.7222e+01  3e-04  5e-14  2e-16
+ 6: -9.7222e+01 -9.7222e+01  3e-06  9e-14  9e-17
+Optimal solution found.
+Classification completed for label 9 .. 
+One Vs All Classification Completed !
+Start prediction ... 
+Computing RBF Kernel
+Prediction completed !
+Saving Output ... 
+Output saved.

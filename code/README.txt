@@ -1,4 +1,4 @@
-In this folder, you can find the code organized as follows :
+In the code folder, you can find the code organized as follows :
 
 * start.py : to run the classification task;
 * kernel.py : Store the kernels used in the kernel SVM method;
@@ -13,3 +13,10 @@ In this folder, you can find the code organized as follows :
 * utils.py : Contains utils function to load data and output results in the format accepted by the Challenge.
 
 
+* log_lin.txt : Contains log file for the compilation of start.py with linear kernel
+* log_rbf.txt : Contains log file for the compilation of start.py with gaussian(rbf) kernel
+
+
+In the same level as the code folder should be :
+    * data : folder to store the data
+    * results : to output the predictions

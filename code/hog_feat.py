@@ -9,15 +9,15 @@ def conv_2d(img, mat):
     c = int(mat.shape[0] / 2)
     conv_img = np.array(img, dtype=complex)
 
-    ## Loop over each block 8 * 8
-    for i in range(img.shape[0]):
-        for j in range(img.shape[1]):
+    ## Loop over each pixel of the image [py,px] \in 32 * 32 to do the convolution
+    for py in range(img.shape[0]):
+        for px in range(img.shape[1]):
             
-            mat_sub = mat[max(0, c - i):mat.shape[0] - max(0, (i + c + 1) - img.shape[0]),
-                                    max(0, c - j):mat.shape[1] - max(0, (j + c + 1) - img.shape[1])]
-            img_sub = img[max(0, i - c):min(img.shape[0], i + c + 1),
-                                    max(0, j - c):min(img.shape[1], j + c + 1)]
-            conv_img[i, j] = np.sum(np.multiply(mat_sub, img_sub))
+            mat_sub = mat[max(0, c - py):mat.shape[0] - max(0, (py + c + 1) - img.shape[0]),
+                                    max(0, c - px):mat.shape[1] - max(0, (px + c + 1) - img.shape[1])]
+            img_sub = img[max(0, py - c):min(img.shape[0], py + c + 1),
+                                    max(0, px - c):min(img.shape[1], px + c + 1)]
+            conv_img[py, px] = np.sum(np.multiply(mat_sub, img_sub))
 
     return conv_img
 
@@ -25,9 +25,14 @@ def conv_2d(img, mat):
 def extract_hog_feat_channel(channel):
     # Convolution matrix Gx + j Gy
     # Sobel Operator for computing the gradient 3* 3 in complex form
-    mat = np.array([[-3 - 3j, 0 - 10j, +3 - 3j],[-10 + 0j, 0 + 0j, +10 + 0j], [-3 + 3j, 0 + 10j, +3 + 3j]])
+    Gx  = np.array([ [ -1 ,   0 , 1 ] , [-2 , 0 , 2] , [-1, 0 , 1 ]]) # For Horizontal derivative approximation
+    Gy  = np.array([ [ -1 , - 2 , -1 ], [ 0 , 0 , 0] ,[ 1, 2  , 1  ]])# For Vertical Derivative approximation
+    # Define the convolution matrix
+    G = np.zeros((3,3), dtype=complex)
+    G.real = Gx
+    G.imag = Gy
 
-    grad = conv_2d(channel, mat)
+    grad = conv_2d(channel, G)
     hist = np.zeros((8, 8, 9))
     bsize = 4 # Block Size in the detection window
     nbins = 9 # Number of bins in the HOG histogram
@@ -36,7 +41,7 @@ def extract_hog_feat_channel(channel):
         for j in range(8):
             for grad_pixel in np.nditer(grad[i * bsize:(i + 1) * bsize, j * bsize:(j + 1) * bsize]):
                 # Add the magnitude to the correspondant bins in the histogram
-                hist[i, j, int(abs (nbins * ((360 + np.angle(case, deg=True)) % 360) / 360))] += np.absolute(grad_pixel)
+                hist[i, j, int( abs(nbins * ( (360 + np.angle(grad_pixel, deg=True)) % 360) / 360))] += np.absolute(grad_pixel)
 
     return hist, np.absolute(grad)
 
@@ -54,8 +59,8 @@ def extract_hog_feat_img(img ) :
         for k in range(8):
             m = np.argmax(np.sum(grad_rgb[j*bsize:(j+1)*bsize ,k*bsize:(k+1)*bsize,:],axis=(0,1) ))
             hist[j,k,:] = hist_rgb[ j , k , : , m]
-            grad[j * bsize:(j + 1) * bsize,k * bsize:(k + 1) * bsize ] =grad_rgb[j * bsize:(j + 1)
-                                                               * bsize, k * bsize:(k + 1) * bsize, m]
+            grad[j * bsize:(j + 1) * bsize,k * bsize:(k + 1) * bsize ] =\
+                grad_rgb[j * bsize:(j + 1)* bsize, k * bsize:(k + 1) * bsize, m]
     return hist,grad
 
 # Extract HOG features in dimension 8*8*9

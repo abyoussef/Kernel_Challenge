@@ -1,10 +1,9 @@
 import numpy as np
-import kernel as ker
 import cvxopt
 
 # SVM file DONE !
 
-def ova_SVM( X , y, lambda_, Kernel=ker.lin_ker):
+def ova_svm( X , y, lambda_, Kernel):
     # One vs All SVM implementation
     n = X.shape[0]  # is the
     num_labels = len(set(y)) # K is the number of classes
@@ -16,17 +15,17 @@ def ova_SVM( X , y, lambda_, Kernel=ker.lin_ker):
     # Kernel matrix
     K = Kernel(X,X) # Kernel Matrix of size n*n
     # For each label, we perform an SVM One vs All classification
-    print " Start one vs all classification"
+    print "Start one vs all classification"
     for k  in range( num_labels ):
         ova_y = 2 * (y==k) - 1
-        a[k, :], b[k] = solve_dual_SVM(K, ova_y, lambda_)
+        a[k, :], b[k] = solve_dual_svm(K, ova_y , lambda_)
         print "Classification completed for label {0} .. ".format(k)
     print "One Vs All Classification Completed !"
     return a, b
 
 
 
-def solve_dual_SVM(K, y, lambda_):
+def solve_dual_svm(K, y, lambda_):
     ## Function to solve the dual formulation of the SVM
     ## Based on the http://cvxopt.org/examples/tutorial/qp.html?highlight=quadratic
 
@@ -38,16 +37,16 @@ def solve_dual_SVM(K, y, lambda_):
     A = cvxopt.matrix(1., (1, n))
     b = cvxopt.matrix(0.)
     y = y.astype(np.double)
-    diag_y = cvxopt.spdiag(y.tolist())
+    y_diag = cvxopt.spdiag(y.tolist())
     q = cvxopt.matrix(-y)
-    G = cvxopt.sparse([diag_y, -diag_y])
+    G = cvxopt.sparse([y_diag, - y_diag])
     res = cvxopt.solvers.qp(P, q, G, h, A, b)
 
     return np.array(res["x"]).T, res["y"][0]
 
 
 
-def predict_SVM( a , b, X_tr_features, X_te_features ,Kernel=ker.lin_ker):
+def predict_svm( a , b, X_tr_features, X_te_features ,Kernel):
     # Predict labels of the X_te_features based on the solution of the SVM
     prob_pred = np.zeros((a.shape[0],X_te_features.shape[0])) # Matrix of size num_labels * test size
     print "Start prediction ... "
